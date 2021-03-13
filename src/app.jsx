@@ -4,7 +4,7 @@ import jumboData from "./fixture/jumbo.json";
 function App() {
   return (
     <div className="App">
-      <Jumbotron>
+      <Jumbotron.Container>
         {jumboData.map((item) => (
           <Jumbotron key={item.id} direction={item.direction}>
             <Jumbotron.Pane>
@@ -16,7 +16,7 @@ function App() {
             </Jumbotron.Pane>
           </Jumbotron>
         ))}
-      </Jumbotron>
+      </Jumbotron.Container>
     </div>
   );
 }

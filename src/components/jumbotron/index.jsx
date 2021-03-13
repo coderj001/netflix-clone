@@ -1,12 +1,29 @@
 import React from "react";
-import { Inner, Pane, Title, SubTitle, Image } from "./style/jumbotron";
+import PropTypes from "prop-types";
+import {
+  Container,
+  Item,
+  Inner,
+  Pane,
+  Title,
+  SubTitle,
+  Image,
+} from "./style/jumbotron";
 
-const Jumbotron = ({ children, direction = "row", ...restProps }) => {
+export default function Jumbotron({
+  children,
+  direction = "row",
+  ...restProps
+}) {
   return (
-    <Inner direction={direction} {...restProps}>
-      {children ? children : <p>Hello Here In Jombotron</p>}
-    </Inner>
+    <Item {...restProps}>
+      <Inner direction={direction}>{children}</Inner>
+    </Item>
   );
+}
+
+Jumbotron.Container = ({ children, ...restProps }) => {
+  return <Container {...restProps}>{children}</Container>;
 };
 
 Jumbotron.Pane = ({ children, ...restProps }) => {
@@ -25,4 +42,27 @@ Jumbotron.Image = ({ ...restProps }) => {
   return <Image {...restProps} />;
 };
 
-export default Jumbotron;
+Jumbotron.protoTypes = {
+  direction: PropTypes.string.isRequired,
+};
+
+Jumbotron.defaultProps = {
+  direction: "row",
+  children: null,
+};
+
+Jumbotron.Container.defaultProps = {
+  children: null,
+};
+
+Jumbotron.Pane.defaultProps = {
+  children: null,
+};
+
+Jumbotron.Title.defaultProps = {
+  children: null,
+};
+
+Jumbotron.SubTitle.defaultProps = {
+  children: null,
+};
