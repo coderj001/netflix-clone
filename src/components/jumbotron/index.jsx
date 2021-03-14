@@ -10,11 +10,7 @@ import {
   Image,
 } from "./style/jumbotron";
 
-export default function Jumbotron({
-  children,
-  direction = "row",
-  ...restProps
-}) {
+function Jumbotron({ children, direction = "row", ...restProps }) {
   return (
     <Item {...restProps}>
       <Inner direction={direction}>{children}</Inner>
@@ -66,3 +62,5 @@ Jumbotron.Title.defaultProps = {
 Jumbotron.SubTitle.defaultProps = {
   children: null,
 };
+
+export default Jumbotron;
