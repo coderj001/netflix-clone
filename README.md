@@ -2,7 +2,7 @@
 
 ### About
 
-This project is part of [youtube tutorial](https://youtu.be/x_EEwGe-a9o) video which I'm following and also (github repo)[https://github.com/karlhadwen/netflix].
+This project is part of [youtube tutorial](https://youtu.be/x_EEwGe-a9o) video which I'm following and also [ github repo ]( https://github.com/karlhadwen/netflix ).
 As going through the project I am learning and code my own touch on the way.
 
 ### Preview

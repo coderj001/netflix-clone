@@ -3,7 +3,6 @@ import {
   Container,
   Inner,
   Title,
-  Frame,
   Item,
   Header,
   Body,
@@ -19,15 +18,11 @@ function Accordion({ children, ...restProps }) {
   );
 }
 
-Accordion.Title = ({ children, ...restProps }) => {
+Accordion.Title = function AccordionTitle({ children, ...restProps }) {
   return <Title {...restProps}>{children}</Title>;
 };
 
-Accordion.Frame = ({ children, ...restProps }) => {
-  return <Frame {...restProps}>{children}</Frame>;
-};
-
-Accordion.Item = ({ children, ...restProps }) => {
+Accordion.Item = function AccordionTitle({ children, ...restProps }) {
   const [toggleShow, setToggleShow] = useState(false);
 
   return (
@@ -37,8 +32,7 @@ Accordion.Item = ({ children, ...restProps }) => {
   );
 };
 
-Accordion.Header = ({ children, ...restProps }) => {
-  // ERROR:  <14-03-21, coderj001> // Due to function name in captization
+Accordion.Header = function AccordionHeader({ children, ...restProps }) {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
   return (
@@ -47,11 +41,16 @@ Accordion.Header = ({ children, ...restProps }) => {
       {...restProps}
     >
       {children}
+      {toggleShow ? (
+        <img src="/images/icons/close-slim.png" alt="Close" />
+      ) : (
+        <img src="/images/icons/add.png" alt="Open" />
+      )}
     </Header>
   );
 };
 
-Accordion.Body = ({ children, ...restProps }) => {
+Accordion.Body = function AccordionBody({ children, ...restProps }) {
   const { toggleShow } = useContext(ToggleContext);
   return toggleShow ? <Body {...restProps}>{children}</Body> : null;
 };
