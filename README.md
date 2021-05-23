@@ -1,4 +1,5 @@
 ## Netflix Clone
+> React, Router, Style-Component
 
 ### About
 
@@ -7,14 +8,7 @@ As going through the project I am learning and code my own touch on the way.
 
 ### Preview
 
-![image](https://i.imgur.com/BXHco9E.png)
-![image](https://i.imgur.com/BXLx7hp.png)
-
-
-### Some Todos
-
-- [x] Understand the architecture for react components
-- [x] Created Jumbotron
-- [x] Created Footer
-- [ ] Continue ...
-
+![image 1](https://i.imgur.com/jkLLsUM.jpg)
+![image 2](https://i.imgur.com/GORgXAy.png)
+![image 3](https://i.imgur.com/2hcAaGt.png)
+![image 4](https://i.imgur.com/3iqKvsR.png)
