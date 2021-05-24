@@ -1,15 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { Form } from "../components";
+import { FirebaseContext } from "../contexts/firebase";
+import * as ROUTES from "../constants/routes";
 
-function FormContainer() {
-  const [emailAddress, setEmailAddress] = useState(null);
-  const [password, setPassword] = useState(null);
+function FormContainerSignIn() {
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
+
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const isInValid = password === "" || emailAddress === "";
   const handleSignIn = (e) => {
     e.preventDefault();
-    // Firebase work
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(emailAddress, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+
+        history.push(ROUTES.BROWSE);
+      })
+      .catch((err) => {
+        setEmailAddress("");
+        setPassword("");
+        setError(err.message);
+      });
   };
 
   return (
@@ -34,7 +53,8 @@ function FormContainer() {
           <Form.Submit disabled={isInValid}>Sign In</Form.Submit>
         </Form.Base>
         <Form.Text>
-          New to Netflix? <Form.Link to="/signup">Sign Up Now.</Form.Link>
+          New to Netflix?{" "}
+          <Form.Link to={ROUTES.SIGN_UP}>Sign Up Now.</Form.Link>
         </Form.Text>
         <Form.TextSmall>
           This page protected by google reCAPTURA. To ensure you are not bot.
@@ -44,4 +64,4 @@ function FormContainer() {
   );
 }
 
-export default FormContainer;
+export default FormContainerSignIn;

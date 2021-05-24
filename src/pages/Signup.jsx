@@ -1,10 +1,16 @@
 import React from "react";
+import FooterContainer from "../containers/footer";
+import HeaderContainer from "../containers/header";
+import FormContainerSignUp from "../containers/formsignup";
 
 function Signup() {
   return (
-    <div>
-      <h1>Signup</h1>
-    </div>
+    <>
+      <HeaderContainer>
+        <FormContainerSignUp />
+      </HeaderContainer>
+      <FooterContainer />
+    </>
   );
 }
 
