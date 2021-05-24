@@ -24,3 +24,5 @@ yarn-error.log*
 tags
 public/images/*
 public/videos/*
+
+firebase-config.js
