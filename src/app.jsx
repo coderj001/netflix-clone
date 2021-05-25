@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React /* , { useContext } */ from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as ROUTER from "./constants/routes";
 import { Home, Browse, Signin, Signup } from "./pages";
-import { FirebaseContext } from "./contexts/firebase";
-import IsUserRedirect from "./helpers/routes";
-
+// import { FirebaseContext } from "./contexts/firebase";
+import { ProtectRoute, IsUserRedirect } from "./helpers/routes";
 function App() {
-  const user = {};
+  const user = null;
   // get firebase user
   // const { firebase } = useContext(FirebaseContext);
   // console.log(firebase.auth().currentUser);
+
   return (
     <Router>
       <Switch>
@@ -17,9 +17,9 @@ function App() {
           <Home />
         </Route>
 
-        <Route exact path={ROUTER.BROWSE}>
+        <ProtectRoute exact path={ROUTER.BROWSE} user={user}>
           <Browse />
-        </Route>
+        </ProtectRoute>
 
         <IsUserRedirect
           exact
