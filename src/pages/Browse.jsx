@@ -1,10 +1,17 @@
 import React from "react";
+import BrowserContainer from "../containers/browse";
+import { useContent } from "../hooks";
+import selectionFilter from "../utils/selection-map";
 
 function Browse() {
+  const { series } = useContent("series");
+  const { films } = useContent("films");
+  const slides = selectionFilter({ series, films });
+
   return (
-    <div>
-      <h1>Browse</h1>
-    </div>
+    <>
+      <BrowserContainer slides={slides} />
+    </>
   );
 }
 

@@ -1,14 +1,13 @@
-import React /* , { useContext } */ from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as ROUTER from "./constants/routes";
 import { Home, Browse, Signin, Signup } from "./pages";
-// import { FirebaseContext } from "./contexts/firebase";
 import { ProtectRoute, IsUserRedirect } from "./helpers/routes";
+import { useAuthListener } from "./hooks";
+
 function App() {
-  const user = null;
-  // get firebase user
-  // const { firebase } = useContext(FirebaseContext);
-  // console.log(firebase.auth().currentUser);
+  const user = useAuthListener();
+  console.log(user);
 
   return (
     <Router>

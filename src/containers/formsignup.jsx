@@ -25,7 +25,8 @@ function FormContainerSignUp() {
         user
           .updateProfile({
             displayName: firstName,
-            photoURl: Math.floor(Math.random() * 5) + 1,
+            // ERROR:  <26-05-21, coderj001> // Not working
+            photoURl: `${Math.floor(Math.random() * 5) + 1}`,
           })
           .then(() => history.push(ROUTES.BROWSE))
           .catch((err) => setError(err.message));
@@ -63,7 +64,7 @@ function FormContainerSignUp() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Input>
-          <Form.Submit disabled={isInValid}>Sign In</Form.Submit>
+          <Form.Submit disabled={isInValid}>Sign Up</Form.Submit>
         </Form.Base>
         <Form.Text>
           Already a user.{" "}
